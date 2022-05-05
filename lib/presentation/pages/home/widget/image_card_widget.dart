@@ -12,7 +12,7 @@ class ImageCard extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(15),
         child: Image.network(
-           "https://cataas.com/cat",
+           catFactModel!.image!,
           fit: BoxFit.fill,
         ),
       ),
