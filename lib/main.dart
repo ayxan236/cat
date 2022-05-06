@@ -7,6 +7,6 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
   Hive.registerAdapter(CatFactModelAdapter());
-  await Hive.openBox<CatFactModel>("catFacts");
+  var box = await Hive.openBox<CatFactModel>("catFacts");
   runApp(const MyApp());
 }

@@ -13,24 +13,27 @@ class _CatLocalListState extends State<CatLocalList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: BlocBuilder<CatlocalBloc, CatlocalState>(
-        builder: (context, state) {
-          if (state is CatlocalLoading || state is CatlocalError) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          } else if (state is CatlocalFetched) {
-            return ListView.separated(
-              separatorBuilder: (context, index) => const Divider(),
-              itemCount: state.catBox!.length,
-              itemBuilder: (context, index) {
-                CatFactModel catFactModel = state.catBox!.getAt(index)!;
-                return CatlocalCard(catFactModel: catFactModel);
-              },
-            );
-          }
-          return const SizedBox();
-        },
+      body: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 5),
+        child: BlocBuilder<CatlocalBloc, CatlocalState>(
+          builder: (context, state) {
+            if (state is CatlocalLoading || state is CatlocalError) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            } else if (state is CatlocalFetched) {
+              return ListView.separated(
+                separatorBuilder: (context, index) => const Divider(),
+                itemCount: state.catBox!.length,
+                itemBuilder: (context, index) {
+                  CatFactModel catFactModel = state.catBox!.getAt(index)!;
+                  return CatlocalCard(catFactModel: catFactModel);
+                },
+              );
+            }
+            return const SizedBox();
+          },
+        ),
       ),
     );
   }

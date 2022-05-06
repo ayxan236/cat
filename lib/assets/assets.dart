@@ -1,3 +1,4 @@
+
 class Assets {
-  static const String catFoto = "https://cataas.com/cat";
+  static const String catFoto = "https://cataas.com/cat?hash=";
 }

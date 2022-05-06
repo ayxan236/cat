@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:bloc/bloc.dart';
 import 'package:cat_fact/assets/assets.dart';
 import 'package:cat_fact/data/data_source/cat_facts_data_source.dart';
@@ -21,9 +23,11 @@ class CatFactBloc extends Bloc<CatFactEvent, CatFactState> {
         emit(CatFactLoading());
         try {
           var resul = await dataSource.getFacts();
-          emit(CatFactFetched(catFactModel: resul));
-          box.add(resul);
-          print(resul.hashCode);
+          var random = Random();
+          var data =
+              resul.copyWith(image: Assets.catFoto + "${random.nextInt(100)}");
+          emit(CatFactFetched(catFactModel: data));
+          box.add(data);
         } catch (e) {
           emit(CatFactError());
         }

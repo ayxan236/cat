@@ -6,6 +6,11 @@ class CatlocalCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      leading:  ClippedImage(
+        catFactModel: catFactModel,
+        height: 70,
+        width: 60,
+      ),
       title: Text(catFactModel!.text!),
     );
   }

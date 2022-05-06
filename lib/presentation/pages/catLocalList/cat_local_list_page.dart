@@ -1,4 +1,6 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cat_fact/data/models/cat_fsatc_model.dart';
+import 'package:cat_fact/presentation/pages/home/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

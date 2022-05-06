@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cat_fact/data/models/cat_fsatc_model.dart';
 import 'package:flutter/material.dart';
@@ -12,3 +14,4 @@ part 'screen/home_screen.dart';
 part 'widget/image_card_widget.dart';
 part 'widget/text_card_widget.dart';
 part 'widget/buttons_widget.dart';
+part 'widget/clipped_image_widget.dart';

@@ -1,12 +1,11 @@
-import 'package:cat_fact/assets/assets.dart';
 import 'package:hive/hive.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'cat_fsatc_model.g.dart';
 
 @JsonSerializable()
-@HiveType(typeId: 0,adapterName: 'CatFactModelAdapter')
+@HiveType(typeId: 0, adapterName: 'CatFactModelAdapter')
 class CatFactModel extends HiveObject {
-
+  CatFactModel._();
   @HiveField(0)
   String? sId;
   @HiveField(1)
@@ -37,4 +36,26 @@ class CatFactModel extends HiveObject {
   factory CatFactModel.fromJson(Map<String, dynamic> json) =>
       _$CatFactModelFromJson(json);
   Map<String, dynamic> toJson() => _$CatFactModelToJson(this);
+
+  CatFactModel copyWith({
+    String? sId,
+    String? image,
+    int? iV,
+    String? text,
+    String? updatedAt,
+    bool? deleted,
+    String? source,
+    int? sentCount,
+  }) {
+    return CatFactModel(
+      sId: sId ?? this.sId,
+      image: image ?? this.image,
+      iV: iV ?? this.iV,
+      text: text ?? this.text,
+      updatedAt: updatedAt ?? this.updatedAt,
+      deleted: deleted ?? this.deleted,
+      source: source ?? this.source,
+      sentCount: sentCount ?? this.sentCount,
+    );
+  }
 }
